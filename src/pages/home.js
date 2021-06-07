@@ -1,6 +1,6 @@
 import React,  {useState,useEffect} from "react"
 import { getImage } from "gatsby-plugin-image"
-import {graphql} from "gatsby"
+import {graphql, useStaticQuery} from "gatsby"
 import images_ref from "../images/images_ref.json"
 import ImageWrapper from "../components/imageWrapper.js"
 import useWindowWidth from "../components/useWindowWidth.js"
@@ -10,7 +10,27 @@ import useWindowHeight from "../components/useWindowHeight.js"
 images_ref.sort((a,b) => a.xPos === b.xPos ? a.yPos  - b.yPos : a.xPos - b.xPos);
 
 
-const HomePage = ({data})=> {
+const HomePage = ()=> {
+    const data = useStaticQuery(
+        graphql `
+        query homePageQuery {
+          images: allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/homePage"}}) {
+            nodes {
+              id
+              name
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: CONSTRAINED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+              
+            }
+          }
+        }
+        `
+    )
 
   const windowWidth = useWindowWidth();
   const windowHeight = useWindowHeight();
@@ -59,22 +79,3 @@ images.map(image=> {
 }
 
 export default HomePage
-
-export const pageQuery = graphql `
-query homePageQuery {
-  images: allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/homePage"}}) {
-    nodes {
-      id
-      name
-      childImageSharp {
-        gatsbyImageData(
-          placeholder: BLURRED
-          layout: CONSTRAINED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
-      
-    }
-  }
-}
-`
