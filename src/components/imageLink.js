@@ -10,7 +10,7 @@ import useWindowHeight from './useWindowHeight.js'
 const ImageLink = ({name,link,toggle}) => {
 const data = useStaticQuery(graphql`
 query linkImages {
-    allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/linkImages"}}) {
+    allFile(filter: {relativeDirectory: {in: "linkImages"}}) {
       nodes {
         childImageSharp {
           gatsbyImageData

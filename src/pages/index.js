@@ -71,12 +71,12 @@ position: absolute;
  right:0;
  overflow:hidden;
  `}>
-   <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   {/* <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    
    <ImageWrapper key = "text" image = {textImage} name = "text" link = "-" xPos = "38.9" yPos = "79" 
-   displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
-   <a href = "/home">
-   <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "17" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/> */}
+   <a href = "/home"> link
+   {/* <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "17" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/> */}
    </a>
   {
 // images.map(image=> {
