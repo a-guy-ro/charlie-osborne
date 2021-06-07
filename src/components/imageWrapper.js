@@ -1,5 +1,5 @@
 import React,  {useState} from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import ImageLink from "../components/imageLink.js"
 import styled from "styled-components"
 
@@ -100,6 +100,7 @@ const togglePop = () => {
 
 console.log(`width - ${width} ; height - ${height}`);
 console.log(image);
+console.log(displayWidthRatio);
     return (
         <ImageWrapperStyle >
         <div className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>

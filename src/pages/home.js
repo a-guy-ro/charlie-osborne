@@ -66,7 +66,7 @@ images.map(image=> {
   images_ref.map(ref=> {
     if (image.name === ref.name) {
           return (
-        <ImageWrapper className  = "imageWrapper" key = {image.id} image = {getImage(image)} width = {image.childImageSharp.gatsbyImageData.width} height = {image.childImageSharp.gatsbyImageData.height} name = {ref.name} link = {ref.link} xPos = {ref.xPos} yPos = {ref.yPos} displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+        <ImageWrapper css = {`width: ${image.childImageSharp.gatsbyImageData.width/displayWidthRatio}px; height: ${image.childImageSharp.gatsbyImageData.height/displayHeightRatio}px`}className  = "imageWrapper" key = {image.id} image = {getImage(image)} width = {image.childImageSharp.gatsbyImageData.width} height = {image.childImageSharp.gatsbyImageData.height} name = {ref.name} link = {ref.link} xPos = {ref.xPos} yPos = {ref.yPos} displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
         )
           } else {
             return null
