@@ -15,7 +15,7 @@ import useWindowHeight from "../components/useWindowHeight.js"
 const IndexPage = ()=> {
   const data = useStaticQuery(graphql`
   query indexPageQuery {
-    images: allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/landingPage"}}) {
+    images: allFile(filter: {relativeDirectory: {in: "landingPage"}}) {
       nodes {
         id
         name
@@ -47,7 +47,7 @@ const IndexPage = ()=> {
   const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
   const buttonImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'button')];
   const textImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'STEAL_COIN_TO_BEGIN')];
-  const gatsbyBgImage = {width: 1919, height: 1079};
+  const gatsbyBgImage = getImage(bgImage).width !== null ? getImage(bgImage) : {width: 1919, height: 1079};
   // const gatsbyBgImage = {width: 1919, height: 1079};
   const displayWidthRatio = gatsbyBgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
@@ -71,12 +71,12 @@ position: absolute;
  right:0;
  overflow:hidden;
  `}>
-   {/* <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    
-   <ImageWrapper key = "text" image = {textImage} name = "text" link = "-" xPos = "38.9" yPos = "79" 
-   displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/> */}
-   <a href = "/home"> link
-   {/* <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "17" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/> */}
+   <ImageWrapper key = "text" image = {textImage} name = "text" link = "-" xPos = "38.9" yPos = "69" 
+   displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   <a href = "/home"> 
+   <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "10" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    </a>
   {
 // images.map(image=> {

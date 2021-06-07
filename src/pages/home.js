@@ -14,7 +14,7 @@ const HomePage = ()=> {
     const data = useStaticQuery(
         graphql `
         query homePageQuery {
-          images: allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/homePage"}}) {
+          images: allFile(filter: {relativeDirectory: {in: "homePage"}}) {
             nodes {
               id
               name
