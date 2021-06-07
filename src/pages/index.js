@@ -29,18 +29,16 @@ const IndexPage = ({data})=> {
   const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
   const buttonImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'button')];
   const textImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'STEAL_COIN_TO_BEGIN')];
-  console.log(bgImage);
-  console.log(buttonImage);
-  console.log(textImage);
-  const displayWidthRatio = getImage(bgImage).width/windowWidth;
-  const [displayHeightRatio, setDisplayHeightRatio] = useState ((getImage(bgImage).height/displayWidthRatio)/windowHeight)
+const gatsbyBgImage = getImage(bgImage)
+  const displayWidthRatio = gatsbyBgImage.width/windowWidth;
+  const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
 
   useEffect(() => {
     console.log('use effect is working!');
-    setDisplayHeightRatio((getImage(bgImage).height/(displayWidthRatio))/windowHeight);
+    setDisplayHeightRatio((gatsbyBgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
     }
-  }, [windowHeight, bgImage, displayWidthRatio, windowWidth,displayHeightRatio])
+  }, [windowHeight, gatsbyBgImage, displayWidthRatio, windowWidth,displayHeightRatio])
 
 
   return (
