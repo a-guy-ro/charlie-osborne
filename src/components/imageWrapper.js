@@ -24,7 +24,6 @@ useEffect(() => {
     top: parseFloat(yPos)*(displayHeightRatio),
     left: parseFloat(xPos)
     })
-    console.log(imageDisplayProps);
     return () => {
     }
 }, [imageWidth,imageHeight,displayHeightRatio,displayWidthRatio,xPos,yPos])

@@ -39,15 +39,13 @@ const HomePage = ()=> {
   data.images.nodes.forEach(node => { if(node.name === 'background') {bgImage= getImage(node)}});
   const displayWidthRatio = bgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((bgImage.height/displayWidthRatio)/windowHeight)
-  images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);
-    console.log(images);
-  
-    useEffect(() => {
-    console.log('use effect is working!');
+  images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);  
+
+useEffect(() => {
     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
     }
-  }, [windowHeight,bgImage, displayWidthRatio, windowWidth,displayHeightRatio])
+  }, [])
 
 
   return (

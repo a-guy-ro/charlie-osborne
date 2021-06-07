@@ -33,36 +33,25 @@ const StyledComponent = styled.div `
     }
     
 }
-.imageWrapperLink > div {
-    z-index: 0;
-    
+.imageWrapper{
+    position: absolute;
+    display: inline-block;
+   
 }
+
+
 .pageContainer, .imageWrapperLanding {
     position: absolute;
     display: inline-block;
     animation:  monitorIn 1.5s ease-in-out;
-    z-index: 0 !important;
+    z-index: 0;
     &: hover {
         z-index: 1;
         transform: scale(1.15,1.15);
         cursor: pointer;
     }
 }
-.imageWrapperLanding > div {
-    z-index: 0 !important;
-}
-.pageContainer, .imageWrapper{
-    position: absolute;
-    display: inline-block;
-    z-index: 0 !important;
-   
-}
-.imageWrapper > div {
-    z-index: 0 !important;
-}
-.imageWrapper, .gatsbyImages {
-    z-index: 0;
-}
+
 a {
     position: absolute;
     display: inline-block;
