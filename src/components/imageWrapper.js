@@ -105,7 +105,7 @@ console.log(displayWidthRatio);
         <ImageWrapperStyle >
         <div css = {`width: ${width/displayWidthRatio}px; height: ${height/displayHeightRatio}px`}className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>
             {name === 'blockbuster' ? <a href = {link} target = '_blank' rel="noreferrer"><GatsbyImage className = 'gatsbyImages' key = {image.id} image = {image} alt = {name} loading = 'eager' /></a> : 
-        <GatsbyImage className = 'gatsbyImages' key = {image.id} image = {image} alt = {name} loading = 'eager'/> }
+        <GatsbyImage css = {`width: ${width/displayWidthRatio}px; height: ${height/displayHeightRatio}px`} className = 'gatsbyImages' key = {image.id} image = {image} alt = {name} loading = 'eager'/> }
         {seen ? <ImageLink className = "imageLinks" id = {`popup${name}`} name = {name} link = {link} toggle = {togglePop}/> : null} 
         </div>
         </ImageWrapperStyle>
