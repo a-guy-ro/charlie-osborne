@@ -72,12 +72,12 @@ position: absolute;
  z-index:-2;
  overflow:hidden;
  `}>
-   <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   <ImageWrapper key = "background" image = {getImage(bgImage)} width = {bgImage.childImageSharp.gatsbyImageData.width} height = {bgImage.childImageSharp.gatsbyImageData.height} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    
-   <ImageWrapper key = "text" image = {textImage} name = "text" link = "-" xPos = "38.9" yPos = "69" 
+   <ImageWrapper key = "text" image = {getImage(textImage)} width = {textImage.childImageSharp.gatsbyImageData.width} height = {textImage.childImageSharp.gatsbyImageData.height} name = "text" link = "-" xPos = "38.9" yPos = "69" 
    displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    <a href = "/home"> 
-   <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "10" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+   <ImageWrapper className = 'imageWrapperLink' key = "button" image = {getImage(buttonImage)} width = {buttonImage.childImageSharp.gatsbyImageData.width} height = {buttonImage.childImageSharp.gatsbyImageData.height} name = "button" link = "-" xPos = "31.5" yPos = "10" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    </a>
 </div>
   )
