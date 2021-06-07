@@ -10,18 +10,20 @@ const [seen, setSeen] = useState(false);
 const ImageWrapperStyle = styled.div `
     .ImageWrapperBG{
         position: absolute;
+        display: flex;
         width: ${(image.childImageSharp.gatsbyImageData.width/displayWidthRatio)}px;
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)};
         left: ${parseFloat(xPos)};
         right: 0;
         z-index: -1;
-        .ImageWrapperBG img {
-            z-index:-1;
+        img {
+            z-index: -1 !important;
         }
         }
     .imageWrapperLink {
         position: absolute;
+        display: flex;
         width: ${(image.childImageSharp.gatsbyImageData.width/displayWidthRatio)}px;
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
@@ -37,6 +39,7 @@ const ImageWrapperStyle = styled.div `
     }
     .imageWrapperLanding {
         position: absolute;
+        display: flex;
         width: ${(image.childImageSharp.gatsbyImageData.width/displayWidthRatio)}px;
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
@@ -52,6 +55,7 @@ const ImageWrapperStyle = styled.div `
     }
      .imageWrapper{
         position: absolute;
+        display: flex;
         width: ${(image.childImageSharp.gatsbyImageData.width/displayWidthRatio)}px;
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
@@ -66,6 +70,7 @@ const ImageWrapperStyle = styled.div `
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
+        z-index: auto;
         &: hover {
             width: ${(image.childImageSharp.gatsbyImageData.width)/displayWidthRatio*1.1}px;
             height: ${(image.childImageSharp.gatsbyImageData.height)/displayWidthRatio*1.1}px;
