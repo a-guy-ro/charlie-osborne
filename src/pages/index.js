@@ -51,7 +51,7 @@ const IndexPage = ()=> {
   // const gatsbyBgImage = {width: 1919, height: 1079};
   const displayWidthRatio = gatsbyBgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
-  console.log(gatsbyBgImage);
+  console.log(buttonImage);
 
   useEffect(() => {
     console.log('use effect is working!');
@@ -69,6 +69,7 @@ position: absolute;
  top:0;
  lef:0;
  right:0;
+ z-index:-2;
  overflow:hidden;
  `}>
    <ImageWrapper key = "background" image = {bgImage} name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>

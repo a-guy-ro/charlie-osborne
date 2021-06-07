@@ -57,8 +57,8 @@ position: absolute;
  top:0;
  lef:0;
  right:0;
- z-index:0;
  overflow:hidden;
+ z-index: -2;
  `}>
   {
 images.map(image=> {

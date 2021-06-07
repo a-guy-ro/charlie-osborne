@@ -18,7 +18,7 @@ const ImageWrapperStyle = styled.div `
         right: 0;
        
     }
-    .imageWrapperBG , div {
+    .imageWrapperBG > div {
         z-index: -1 !important;
     }
     
@@ -35,7 +35,7 @@ const ImageWrapperStyle = styled.div `
             cursor: pointer;
         }
     }
-    .imageWrapperLink , div {
+    .imageWrapperLink > div {
         z-index: 0;
     }
     .imageWrapperLanding {
@@ -52,7 +52,7 @@ const ImageWrapperStyle = styled.div `
             cursor: pointer;
         }
     }
-    .imageWrapperLanding , div {
+    .imageWrapperLanding > div {
         z-index: 0;
     }
      .imageWrapper{
@@ -65,7 +65,7 @@ const ImageWrapperStyle = styled.div `
         z-index: 0 !important;
        
     }
-    .imageWrapper , div {
+    .imageWrapper > div {
         z-index: 0;
     }
     a {
