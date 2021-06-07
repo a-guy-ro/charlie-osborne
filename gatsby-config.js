@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Charlie's_Website",
   },
+  pathPrefix: "/charlie-osborne",
   plugins: [
     // "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
@@ -13,7 +14,6 @@ module.exports = {
     //   },
     // },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
