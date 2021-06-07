@@ -8,7 +8,7 @@ const ImageWrapper = ({image, name, link, xPos, yPos, displayHeightRatio, displa
     
 const [seen, setSeen] = useState(false);
 const ImageWrapperStyle = styled.div `
-    .ImageWrapperBG{
+    .imageWrapperBG{
         position: absolute;
         display: flex;
         width: ${(image.childImageSharp.gatsbyImageData.width/displayWidthRatio)}px;
@@ -16,11 +16,12 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)};
         left: ${parseFloat(xPos)};
         right: 0;
-        z-index: -1;
-        img {
-            z-index: -1 !important;
-        }
-        }
+       
+    }
+    .imageWrapperBG , div {
+        z-index: -1 !important;
+    }
+    
     .imageWrapperLink {
         position: absolute;
         display: flex;
@@ -29,13 +30,13 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
         z-index: 0;
-        img {
-            z-index: 0;
-        }
         &: hover {
             transform: scale(1.15,1.15);
             cursor: pointer;
         }
+    }
+    .imageWrapperLink , div {
+        z-index: 0;
     }
     .imageWrapperLanding {
         position: absolute;
@@ -45,13 +46,14 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
         animation:  monitorIn 1.5s ease-in-out;
-        img {
-            z-index: 0;
-        }
+        z-index: 0 !important;
         &: hover {
             transform: scale(1.15,1.15);
             cursor: pointer;
         }
+    }
+    .imageWrapperLanding , div {
+        z-index: 0;
     }
      .imageWrapper{
         position: absolute;
@@ -60,9 +62,11 @@ const ImageWrapperStyle = styled.div `
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
-        img {
-            z-index: 0;
-        }
+        z-index: 0 !important;
+       
+    }
+    .imageWrapper , div {
+        z-index: 0;
     }
     a {
         position: absolute;
@@ -70,7 +74,7 @@ const ImageWrapperStyle = styled.div `
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
-        z-index: auto;
+        z-index: 0;
         &: hover {
             width: ${(image.childImageSharp.gatsbyImageData.width)/displayWidthRatio*1.1}px;
             height: ${(image.childImageSharp.gatsbyImageData.height)/displayWidthRatio*1.1}px;
@@ -96,7 +100,7 @@ const togglePop = () => {
 }
 
     return (
-        <ImageWrapperStyle>
+        <ImageWrapperStyle >
         <div className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>
             {name === 'blockbuster' ? <a href = {link} target = '_blank' rel="noreferrer"><GatsbyImage className = 'gatsbyImages' key = {image.id} image = {getImage(image.childImageSharp)} alt = {name} loading = 'eager' /></a> : 
         <GatsbyImage className = 'gatsbyImages' key = {image.id} image = {getImage(image.childImageSharp)} alt = {name} loading = 'eager'/> }

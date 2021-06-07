@@ -47,7 +47,7 @@ const IndexPage = ()=> {
   const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
   const buttonImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'button')];
   const textImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'STEAL_COIN_TO_BEGIN')];
-  const gatsbyBgImage = getImage(bgImage).width !== null ? getImage(bgImage) : {width: 1919, height: 1079};
+  const gatsbyBgImage = getImage(bgImage);
   // const gatsbyBgImage = {width: 1919, height: 1079};
   const displayWidthRatio = gatsbyBgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
@@ -78,37 +78,8 @@ position: absolute;
    <a href = "/home"> 
    <ImageWrapper className = 'imageWrapperLink' key = "button" image = {buttonImage} name = "button" link = "-" xPos = "31.5" yPos = "10" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    </a>
-  {
-// images.map(image=> {
-//   return (
-//   <ImageWrapper key = {image.id} image = {image} name = {image.name} link = {image.name === 'button' ? './home.js' : '-'} xPos = {image.name === 'background' ? 0 : image.name === 'button' ? 31.5 : 38.9} yPos = {image.name === 'background' ? 0 : image.name === 'button' ? 17 : 79} displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
-//   )
-// })
-}
-{/* <GatsbyImage className = "bgImage" image = {getImage(bgImage.childImageSharp)} alt ="bgImage"/>
-<GatsbyImage className = "textImage" image = {getImage(textImage.childImageSharp)} alt = "textImage"/> */}
-{/* <GatsbyImage className = "buttonImage" image = {getImage(buttonImage.childImageSharp)} alt = "buttonImage"/> */}
 </div>
   )
 }
 
 export default IndexPage
-
-// export const pageQuery = graphql `
-// query indexPageQuery {
-//   images: allFile(filter: {dir: {eq: "/Users/guyronen/charlie-s_website/src/images/landingPage"}}) {
-//     nodes {
-//       id
-//       name
-//       childImageSharp {
-//         gatsbyImageData(
-//           placeholder: BLURRED
-//           layout: CONSTRAINED
-//           formats: [AUTO, WEBP, AVIF]
-//         )
-//       }
-      
-//     }
-//   }
-// }
-// `
