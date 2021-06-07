@@ -47,7 +47,7 @@ const IndexPage = ()=> {
   const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
   const buttonImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'button')];
   const textImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'STEAL_COIN_TO_BEGIN')];
-  const gatsbyBgImage = getImage(bgImage) !== null ? getImage(bgImage) : {width: 1919, height: 1079};
+  const gatsbyBgImage = {width: 1919, height: 1079};
   // const gatsbyBgImage = {width: 1919, height: 1079};
   const displayWidthRatio = gatsbyBgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
