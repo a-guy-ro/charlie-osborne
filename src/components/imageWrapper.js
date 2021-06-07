@@ -76,8 +76,7 @@ const ImageWrapperStyle = styled.div `
         left: ${parseFloat(xPos)}%;
         z-index: 0;
         &: hover {
-            width: ${(width)/displayWidthRatio*1.1}px;
-            height: ${(height)/displayWidthRatio*1.1}px;
+            transform: scale(1.15,1.15);
             cursor: pointer;
         }
     }
@@ -99,6 +98,8 @@ const togglePop = () => {
     // console.log(seen);
 }
 
+console.log(`width - ${width} ; height - ${height}`);
+console.log(image);
     return (
         <ImageWrapperStyle >
         <div className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>
