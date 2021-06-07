@@ -8,7 +8,7 @@ const ImageWrapper = ({image,width, height, name, link, xPos, yPos, displayHeigh
     
 const [seen, setSeen] = useState(false);
 const ImageWrapperStyle = styled.div `
-    .imageWrapperBG{
+    .imageWrapperBG {
         position: absolute;
         display: flex;
         width: ${(width/displayWidthRatio)}px;
@@ -103,7 +103,7 @@ console.log(image);
 console.log(displayWidthRatio);
     return (
         <ImageWrapperStyle >
-        <div className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>
+        <div css = {`width: ${width/displayWidthRatio}px; height: ${height/displayHeightRatio}px`}className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} id = {name} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null}>
             {name === 'blockbuster' ? <a href = {link} target = '_blank' rel="noreferrer"><GatsbyImage className = 'gatsbyImages' key = {image.id} image = {image} alt = {name} loading = 'eager' /></a> : 
         <GatsbyImage className = 'gatsbyImages' key = {image.id} image = {image} alt = {name} loading = 'eager'/> }
         {seen ? <ImageLink className = "imageLinks" id = {`popup${name}`} name = {name} link = {link} toggle = {togglePop}/> : null} 
