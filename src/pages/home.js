@@ -5,6 +5,7 @@ import images_ref from "../images/images_ref.json"
 import ImageWrapper from "../components/imageWrapper.js"
 import useWindowWidth from "../components/useWindowWidth.js"
 import useWindowHeight from "../components/useWindowHeight.js"
+import StyledComponent from "../components/styledComponents.js"
 
 
 images_ref.sort((a,b) => a.xPos === b.xPos ? a.yPos  - b.yPos : a.xPos - b.xPos);
@@ -31,7 +32,6 @@ const HomePage = ()=> {
         }
         `
     )
-
   const windowWidth = useWindowWidth();
   const windowHeight = useWindowHeight();
   const images = data.images.nodes;
@@ -41,7 +41,8 @@ const HomePage = ()=> {
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((bgImage.height/displayWidthRatio)/windowHeight)
   images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);
     console.log(images);
-  useEffect(() => {
+  
+    useEffect(() => {
     console.log('use effect is working!');
     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
@@ -50,23 +51,15 @@ const HomePage = ()=> {
 
 
   return (
-<div  css={`background-color:black;
-position: absolute;
- width:100%; 
- height:100%;
- top:0;
- lef:0;
- right:0;
- overflow:hidden;
- z-index: -2;
- `}>
+      <StyledComponent>
+<div  className = 'pageContainer'>
   {
 images.map(image=> {
   return (
   images_ref.map(ref=> {
     if (image.name === ref.name) {
           return (
-        <ImageWrapper css = {`width: ${image.childImageSharp.gatsbyImageData.width/displayWidthRatio}px; height: ${image.childImageSharp.gatsbyImageData.height/displayHeightRatio}px`}className  = "imageWrapper" key = {image.id} image = {getImage(image)} width = {image.childImageSharp.gatsbyImageData.width} height = {image.childImageSharp.gatsbyImageData.height} name = {ref.name} link = {ref.link} xPos = {ref.xPos} yPos = {ref.yPos} displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
+        <ImageWrapper className  = "imageWrapper" key = {image.id} image = {image} name = {ref.name} link = {ref.link} xPos = {ref.xPos} yPos = {ref.yPos} displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
         )
           } else {
             return null
@@ -76,6 +69,7 @@ images.map(image=> {
 })
 }
 </div>
+</StyledComponent>
   )
 }
 
