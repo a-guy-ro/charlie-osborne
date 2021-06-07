@@ -15,7 +15,10 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)};
         left: ${parseFloat(xPos)};
         right: 0;
-        z-index: -1 !important;
+        z-index: -1;
+        .ImageWrapperBG img {
+            z-index:-1;
+        }
         }
     .imageWrapperLink {
         position: absolute;
@@ -23,6 +26,10 @@ const ImageWrapperStyle = styled.div `
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
+        z-index: 0;
+        img {
+            z-index: 0;
+        }
         &: hover {
             transform: scale(1.15,1.15);
             cursor: pointer;
@@ -35,6 +42,9 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
         animation:  monitorIn 1.5s ease-in-out;
+        img {
+            z-index: 0;
+        }
         &: hover {
             transform: scale(1.15,1.15);
             cursor: pointer;
@@ -46,11 +56,9 @@ const ImageWrapperStyle = styled.div `
         height: ${(image.childImageSharp.gatsbyImageData.height/displayWidthRatio)}px;
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
-    }
-    img {
-        display: flex;
-        z-index: 0;
-        transform: none;
+        img {
+            z-index: 0;
+        }
     }
     a {
         position: absolute;

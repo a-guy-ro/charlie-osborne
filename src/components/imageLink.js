@@ -80,7 +80,7 @@ console.log(data);
     .modalContent {
         background-color: rgba(20,30,30,0.9);
         position: absolute; 
-        z-index: inherit;
+        z-index: 1;
         width: ${isInstagram ? 98 : 99}%; 
         height: ${isInstagram ? modalHeight : 98}%;
         border: 3px solid blue;
@@ -106,7 +106,7 @@ console.log(data);
     .modalPlayerImage {
         position: absolute;
         display: block;
-        z-index: inherit:    
+        z-index: 1:    
     }
    
     .etsyLinkWrapper {
