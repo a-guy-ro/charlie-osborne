@@ -24,10 +24,7 @@ const ImageWrapperStyle = styled.div `
         top: ${parseFloat(yPos)*(displayHeightRatio)}%;
         left: ${parseFloat(xPos)}%;
         &: hover {
-            transformX(-0.1);
-            transformY(-0.1);
-            width: ${(image.childImageSharp.gatsbyImageData.width)/displayWidthRatio*1.1}px;
-            height: ${(image.childImageSharp.gatsbyImageData.height)/displayWidthRatio*1.1}px;
+            transform: scale(1.15,1.15);
             cursor: pointer;
         }
     }
@@ -39,10 +36,7 @@ const ImageWrapperStyle = styled.div `
         left: ${parseFloat(xPos)}%;
         animation:  monitorIn 1.5s ease-in-out;
         &: hover {
-            transformX(-${0.1*(image.childImageSharp.gatsbyImageData.width)/displayWidthRatio}px);
-            transformY(-${0.1*(image.childImageSharp.gatsbyImageData.height)/displayWidthRatio}px);
-            width: ${(image.childImageSharp.gatsbyImageData.width)/displayWidthRatio*1.1}px;
-            height: ${(image.childImageSharp.gatsbyImageData.height)/displayWidthRatio*1.1}px;
+            transform: scale(1.15,1.15);
             cursor: pointer;
         }
     }

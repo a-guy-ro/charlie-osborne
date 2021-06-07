@@ -24,5 +24,16 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `Bearer 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`,
+        },
+      },
+    },
   ],
 };

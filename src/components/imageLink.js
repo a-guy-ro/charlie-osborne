@@ -24,6 +24,7 @@ query linkImages {
 const statementText_1 = useState (`I admire the theatricality of Crazy Frog’s anthem, the bleakness of Block Buster video store, the violence in The Slits, the nutrition in Monster Munch, the genius in Andrea Arnold, the inventions of Mika Rottenberg, the charm of Cardiff, the fight in 13 year old me, the danger of playing with fireworks, the beauty of rain, the intimacy of public toilets, the magic in Daniel Johnston, the power of swear words, the realness of The Streets, the stories on the 197 bus, the sound of a subwoofer, the colours in Sydenham bingo hall, the comfort of an un-washed tracksuit, the hype for Yung Lean, the higher thinking from Mark Fisher, the textures of faded takeaway signs, the fame for Ninjah, the trickery of Instagram filters, the radical in Pussy Riot, the tenderness of Britney Spears, the swag of Tom Waits, the E numbers in GTA, the absence of Dads.`);
 const statementText_2 = useState (`Manifestos written by artists, conjured from Magical Realism. The endless amount of photos on my Dad’s Facebook of witches, ogres, vikings, monsters, celts, spells, rhymes and wizards. The celebration of outsider thinking and the lust for escapism. The never ending class debate, my disagreement with poverty porn and my love for identity exploration. The application of character as an almost filter to frame the ideas within my work. I indulge in archetypes as they live rent free in my brain, on a shelf next to cheap ingredients, found on land, then regurgitated through Charlie Osborne’s hands. If you juxtapose, laugh, rain on my parade or trap me, I probably like you. The internet is a genre and protection can be found in objects, mascots, easter eggs and symbols.`);
 const textLines = 18;
+const igToken = '236071151616094|5dfdd71495f686a7674fdfce2900ee9d';
 const emailText = useState ("EMAIL : charlie_osborne@ymail.com ")
 console.log(data);
 let artist_statement,etsyBG, etsyLinkImage;
@@ -40,7 +41,8 @@ data.allFile.nodes.forEach(image => {
     break;
     }
 });
-const etsyLink = 'https://www.etsy.com/uk/shop/CharlieOsborneShop?ref=simple-shop-header-name&listing_id=1006739510';
+const etsyId = '1006739510';
+const etsyLink = `https://www.etsy.com/uk/shop/CharlieOsborneShop?ref=simple-shop-header-name&listing_id=${etsyId}`;
 console.log(artist_statement);
 const windowWidth = useWindowWidth();
 const windowHeight = useWindowHeight();
@@ -184,7 +186,7 @@ console.log(data);
                 <InstagramEmbed
                     className = "modalPlayerIG"
                     url={link}
-                    clientAccessToken='236071151616094|5dfdd71495f686a7674fdfce2900ee9d'
+                    clientAccessToken={igToken}
                     maxWidth={igWidth}
                     hideCaption={false}
                     containerTagName='div'
