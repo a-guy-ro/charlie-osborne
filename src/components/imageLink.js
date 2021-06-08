@@ -7,7 +7,7 @@ import InstagramEmbed from 'react-instagram-embed';
 import useWindowWidth from './useWindowWidth.js'
 import useWindowHeight from './useWindowHeight.js'
 
-const ImageLink = ({name,link,toggle}) => {
+const ImageLink = ({name,link,toggle, toggleIG}) => {
     
 const data = useStaticQuery(graphql`
 query linkImages {
@@ -47,7 +47,6 @@ data.allFile.nodes.forEach(image => {
 });
 const etsyId = '1006739510';
 const etsyLink = `https://www.etsy.com/uk/shop/CharlieOsborneShop?ref=simple-shop-header-name&listing_id=${etsyId}`;
-console.log(artist_statement);
 const windowWidth = useWindowWidth();
 const windowHeight = useWindowHeight();
 const isInstagram = link.search('instagram') > 0;
@@ -59,16 +58,20 @@ const isEtsy = link.search('etsy') > 0;
 // const etsyLink = 'https://openapi.etsy.com/v2/users/486267358.js?api_key=1aobxdy0i35wpnog2ni6q3f3';
 const igWidth = 320*(windowWidth/1920);
 const modalWidth = isInstagram ? (0.45 * (igWidth/320)) : 0.7;
-const modalHeight = isCv ? ((windowWidth*modalWidth)/windowHeight) * (artist_statement.gatsbyImageData.height/artist_statement.gatsbyImageData.width) + 0.01:
+const modalHeight = isCv ? ((windowWidth*modalWidth)/windowHeight) * (1.2*artist_statement.gatsbyImageData.height/artist_statement.gatsbyImageData.width) + 0.01:
                     isEtsy ? ((windowWidth*modalWidth)/windowHeight) * (etsyBG.gatsbyImageData.height/etsyBG.gatsbyImageData.width) + 0.01 :
                     isPlayerVimeo ? modalWidth*1.25 : 
-                    isInstagram ? 1.75*modalWidth : 0.9;
-console.log(data);
+                    isInstagram ? 5*modalWidth : 0.9;
 
 // console.log (`isIG ${isInstagram} - isPlayerVimeo ${isPlayerVimeo} - isCV ${isCv} - isVimeo ${isVimeo}`);
 
     const handleClick = () => {
         toggle();
+    }
+
+    const handleIgFail = (currentState) => {
+        toggleIG(currentState);
+        console.log('toggling IG1');
     }
     
     return (
@@ -81,7 +84,7 @@ console.log(data);
         width: ${modalWidth * 100}%;
         height: ${isInstagram ? 88 : modalHeight * 100}%;
         `}>
-            <div className = "modalContent" css = {`
+            <div className = "modalContent" id ="modalContent" css = {`
             width: ${isInstagram ? 98 : 99}%; 
             height: ${isInstagram ? modalHeight : 98}%;
             `}>
@@ -95,10 +98,10 @@ console.log(data);
                     height='100%'
                     allowFullScreen
                     />
-                : isInstagram ?
-                // <div className = "modalPlayer">
+                : isInstagram ? 
                 <InstagramEmbed
                     className = "modalPlayerIG"
+                    id = "modalPlayerIG"
                     url={link}
                     clientAccessToken={igToken}
                     maxWidth={igWidth}
@@ -107,11 +110,10 @@ console.log(data);
                     protocol=''
                     injectScript
                     onLoading={() => {}}
-                    onSuccess={() => {}}
+                    onSuccess={handleIgFail(true)}
                     onAfterRender={() => {}}
-                    onFailure={(error) => {console.error(error)}}
-                    />                         
-                    // </div>                                                       
+                    onFailure={handleIgFail(false)}
+                    />                                            
                 : isCv ?
                 <div className = "modalPlayerImage">
                     <GatsbyImage image = {getImage(artist_statement)} alt = "artistStatement" loading = 'eager' />
@@ -123,10 +125,11 @@ console.log(data);
                             <br/><br/>
                             {statementText_2}
                         </p>
+                        </div>
                         <div className = "textEmail">
                             <p>{emailText}</p>
                         </div>
-                    </div>
+                    
                     </div>
                  : isEtsy ? 
                  <div className = "modalPlayerImage">
@@ -145,7 +148,7 @@ console.log(data);
                     height='100%'
                     allowFullScreen
                     />}
-           <span className="close" onClick = {handleClick} onKeyPress = {{handleClick}} role = 'button' tabindex = '-2'>&times;</span>
+           <span className="close" onClick = {handleClick} onKeyPress = {{handleClick}} role = 'button' tabIndex = '-2'>&times;</span>
             </div>
         </div>
 }

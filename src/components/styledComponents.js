@@ -33,9 +33,34 @@ const StyledComponent = styled.div `
     }
     
 }
+.pageContainer, .imageWrapperA {
+    position: absolute;
+    margin: none;
+    display: inline-block;
+    z-index: 0;
+    a {
+        position: absolute;
+        &: hover {
+            z-index: 1;
+            transform: scale(1.15,1.15);
+            cursor: pointer;
+        }
+        
+    }
+    
+}
 .imageWrapper{
     position: absolute;
     display: inline-block;
+    a {
+        position: absolute;
+        &: hover {
+            z-index: 1;
+            transform: scale(1.15,1.15);
+            cursor: pointer;
+        }
+        
+    }
    
 }
 
@@ -52,20 +77,7 @@ const StyledComponent = styled.div `
     }
 }
 
-a {
-    position: absolute;
-    display: inline-block;
-    width: inherit;
-    height: inherit;
-    left: inherit;
-    top: inherit;
-    z-index: 0;
-    &: hover {
-        z-index: 1;
-        transform: scale(1.15,1.15);
-        cursor: pointer;
-    }
-}
+
 
   @keyframes monitorIn{
     from{
@@ -97,6 +109,7 @@ a {
 .modalContent {
     background-color: rgba(20,30,30,0.9);
     position: absolute; 
+    display:inline-block;
     z-index: 2 !important;
     border: 3px solid blue;
     border-radius: 10px;
@@ -119,7 +132,8 @@ a {
 
 .modalPlayerImage {
     position: absolute;
-    display: block; 
+    background-color: rgba(0,0,0,0.9);
+    display: inline-block; 
     z-index: inherit !important; 
     height: 100%;
     width: 100%;
@@ -139,23 +153,24 @@ a {
 }
 .textBase {
     position: absolute;
-    font-size: 14px;
+    disply: block;
     top:25%;
     left:7%;
     right:7%;
-    height: 80%;
+    height: 85%;
 }
 .textEmail {
     position: absolute;
+    display: block;
     text-align: center;
-    bottom: 0;
-    top:80%;
+    margin-top: 5%;
     left:25%;
     right:25%;
 }
 
 p {
     font-family: Helvetica, sans-serif;
+    font-size: 90%;
     color: white;
     font-style: italic;
 }

@@ -6,6 +6,7 @@ import ImageWrapper from "../components/imageWrapper.js"
 import useWindowWidth from "../components/useWindowWidth.js"
 import useWindowHeight from "../components/useWindowHeight.js"
 import StyledComponent from "../components/styledComponents.js"
+import Seo from "../components/seo.js"
 
 
 images_ref.sort((a,b) => a.xPos === b.xPos ? a.yPos  - b.yPos : a.xPos - b.xPos);
@@ -37,8 +38,8 @@ const HomePage = ()=> {
   const images = data.images.nodes;
   const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
   const gatsbyBgImage = getImage(bgImage);
-  const widthRatio = gatsbyBgImage.width !== Infinity ? gatsbyBgImage.width : 1919;
-  const heightRatio = gatsbyBgImage.height !== Infinity ? gatsbyBgImage.height : 1079;
+  const widthRatio = gatsbyBgImage.width !== Infinity ? gatsbyBgImage.width : 3386;
+  const heightRatio = gatsbyBgImage.height !== Infinity ? gatsbyBgImage.height : 2102;
   const [displayWidthRatio, setDisplayWidthRatio] = useState(widthRatio/1024);
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((heightRatio/displayWidthRatio)/768);
   images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);  
@@ -56,6 +57,7 @@ const HomePage = ()=> {
 
   return (
       <StyledComponent>
+        <Seo/>
 <div  className = 'pageContainer'>
   {
 images.map(image=> {

@@ -5,6 +5,7 @@ import ImageWrapper from "../components/imageWrapper.js"
 import useWindowWidth from "../components/useWindowWidth.js"
 import useWindowHeight from "../components/useWindowHeight.js"
 import StyledComponent from "../components/styledComponents.js"
+import Seo from "../components/seo.js"
 
 const IndexPage = ()=> {
   const data = useStaticQuery(graphql`
@@ -50,6 +51,7 @@ const IndexPage = ()=> {
 
   return (
     <StyledComponent>
+      <Seo/>
 <div  className = 'pageContainer' >
    <ImageWrapper key = "background" image = {bgImage}  name = "background" link = "-" xPos = "0" yPos = "0" displayHeightRatio = {displayHeightRatio} displayWidthRatio = {displayWidthRatio}/>
    <ImageWrapper key = "text" image = {textImage} name = "text" link = "-" xPos = "38.9" yPos = "69" 
