@@ -35,22 +35,21 @@ const HomePage = ()=> {
   const windowWidth = useWindowWidth();
   const windowHeight = useWindowHeight();
   const images = data.images.nodes;
-  let bgImage;
-  data.images.nodes.forEach(node => { if(node.name === 'background') {bgImage= getImage(node)}});
-  
-  const displayWidthRatio = bgImage.width/windowWidth !== Infinity ? bgImage.width/windowWidth : 1;
-  const [displayHeightRatio, setDisplayHeightRatio] = useState ((bgImage.height/displayWidthRatio)/windowHeight!==Infinity?(bgImage.height/displayWidthRatio)/windowHeight:1);
+  const bgImage = getImage(data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')]);
+  const widthRatio = bgImage.width !== Infinity ? bgImage.width : 1919;
+  const heightRatio = bgImage.height !== Infinity ? bgImage.height : 1079;
+  const [displayWidthRatio, setDisplayWidthRatio] = useState(widthRatio/1024);
+  const [displayHeightRatio, setDisplayHeightRatio] = useState ((heightRatio/displayWidthRatio)/768);
   images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);  
+
   useEffect(() => {
+    setDisplayWidthRatio(bgImage.width/displayWidthRatio);
     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
     }
-  }, [bgImage.height,windowWidth,windowHeight,displayWidthRatio])
-// useEffect(() => {
-//     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
-//     return () => {
-//     }
-//   }, [])
+  }, [bgImage.height, bgImage.width,windowWidth,windowHeight,displayWidthRatio])
+  console.log(widthRatio);
+  console.log(heightRatio);
 
 
   return (
