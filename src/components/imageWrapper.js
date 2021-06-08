@@ -13,6 +13,10 @@ const [imageDisplayProps, setImageDisplayProps] = useState({
     left:parseFloat(xPos)
 });
 
+console.log(imageDisplayProps);
+console.log(displayHeightRatio);
+console.log(displayWidthRatio);
+
 const togglePop = () => {
     setSeen(!seen);
     // console.log(seen);
@@ -24,21 +28,14 @@ useEffect(() => {
     top: parseFloat(yPos)*(displayHeightRatio),
     left: parseFloat(xPos)
     })
+    console.log(displayHeightRatio);
+    console.log(displayWidthRatio);
+    // console.log(imageDisplayProps);
     return () => {
     }
 }, [displayHeightRatio,displayWidthRatio, imageWidth,imageHeight,xPos,yPos])
-// useEffect(() => {
-//     setImageDisplayProps({
-//     width: imageWidth,
-//     height: imageHeight/displayHeightRatio,
-//     top: parseFloat(yPos)*(displayHeightRatio),
-//     left: parseFloat(xPos)
-//     })
-//     return () => {
-//     }
-// }, [])
-console.log()
-    return (
+
+return (
         <div  css = {` width: ${imageDisplayProps.width}px;
         height: ${imageDisplayProps.height}px; top: ${imageDisplayProps.top}%;
         left: ${imageDisplayProps.left}%`} id = {image.id} className= {name === 'background' ? 'imageWrapperBG' : name === 'blockbuster' ? "imageWrapperA" : name === 'button' ? "imageWrapperLanding" : link.length > 1 ? !seen ? "imageWrapperLink" : "imageWrapper" : "imageWrapper"} key={name} onClick = {link.length > 1 ? !seen ? togglePop : null : null} onKeyPress = {link.length > 1 ? !seen ? togglePop : null : null} >
