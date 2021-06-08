@@ -44,12 +44,12 @@ const HomePage = ()=> {
     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
     }
-  }, [bgImage,windowWidth,windowHeight])
-useEffect(() => {
-    setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
-    return () => {
-    }
-  }, [])
+  }, [bgImage.height,windowWidth,windowHeight,displayWidthRatio])
+// useEffect(() => {
+//     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
+//     return () => {
+//     }
+//   }, [])
 
 
   return (

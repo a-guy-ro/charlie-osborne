@@ -8,6 +8,7 @@ import useWindowWidth from './useWindowWidth.js'
 import useWindowHeight from './useWindowHeight.js'
 
 const ImageLink = ({name,link,toggle}) => {
+    
 const data = useStaticQuery(graphql`
 query linkImages {
     allFile(filter: {relativeDirectory: {in: "linkImages"}}) {
@@ -38,6 +39,9 @@ data.allFile.nodes.forEach(image => {
     break;
     case 'forsale_link':
         etsyLinkImage = image.childImageSharp;
+    break;
+    default:
+        artist_statement = image.childImageSharp;
     break;
     }
 });
@@ -141,7 +145,7 @@ console.log(data);
                     height='100%'
                     allowFullScreen
                     />}
-           <span className="close" onClick = {handleClick}>&times;</span>
+           <span className="close" onClick = {handleClick} onKeyPress = {{handleClick}} role = 'button' tabindex = '-2'>&times;</span>
             </div>
         </div>
 }
