@@ -22,7 +22,7 @@ const Seo = ({ title, description, article }) => {
         description: description || defaultDescription,
         url: `${siteUrl}${pathname}`,
       }
-
+     
     return (
         <Helmet title={seo.title}>
             <title>{seo.title}</title>
