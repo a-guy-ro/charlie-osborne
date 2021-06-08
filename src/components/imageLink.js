@@ -75,18 +75,19 @@ const modalHeight = isCv ? ((windowWidth*modalWidth)/windowHeight) * (1.1*artist
     }
     
     return (
-        <div className = "modalContainer">
+        <div className = "modalContainer" css ={`
+        width: ${modalWidth * 100}%;
+        height: ${isInstagram ? 88 : modalHeight * 100}%;
+        `}>
         {isVimeo ?
         null :
         <div className = "modal" css = {`
         left: ${100*((1-modalWidth)/2)}%;
         right: ${100*((1-modalWidth)/2)}%;
-        width: ${modalWidth * 100}%;
-        height: ${isInstagram ? 88 : modalHeight * 100}%;
         `}>
             <div className = "modalContent" id ="modalContent" css = {`
             width: ${isInstagram ? 98 : 99}%; 
-            height: ${isInstagram ? modalHeight : 100}%;
+            height: ${isInstagram ? modalHeight : 99}%;
             `}>
             {isPlayerVimeo ? 
                 <iframe className = "modalPlayer" src={link} title = {name}  

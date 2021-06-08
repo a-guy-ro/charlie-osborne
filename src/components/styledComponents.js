@@ -104,6 +104,7 @@ const StyledComponent = styled.div `
     bottom: 5%;
     justify-content:center;
     overflow: auto;
+   
 }
 
 .modalContent {
@@ -171,7 +172,7 @@ const StyledComponent = styled.div `
 
 p {
     font-family: Helvetica, sans-serif;
-    font-size: 90%;
+    font-size: 2.45vh;
     color: white;
     font-style: italic;
 }
