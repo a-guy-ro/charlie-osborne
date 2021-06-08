@@ -36,7 +36,12 @@ const IndexPage = ()=> {
   const gatsbyBgImage = getImage(bgImage);
   const displayWidthRatio = gatsbyBgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((gatsbyBgImage.height/displayWidthRatio)/windowHeight);
-
+  useEffect(() => {
+    console.log('use effect is working!');
+    setDisplayHeightRatio((gatsbyBgImage.height/(displayWidthRatio))/windowHeight);
+    return () => {
+    }
+  }, [displayWidthRatio,windowHeight,windowWidth])
   useEffect(() => {
     console.log('use effect is working!');
     setDisplayHeightRatio((gatsbyBgImage.height/(displayWidthRatio))/windowHeight);

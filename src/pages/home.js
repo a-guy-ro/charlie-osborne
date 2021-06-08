@@ -40,7 +40,11 @@ const HomePage = ()=> {
   const displayWidthRatio = bgImage.width/windowWidth;
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((bgImage.height/displayWidthRatio)/windowHeight)
   images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);  
-
+  useEffect(() => {
+    setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
+    return () => {
+    }
+  }, [bgImage,windowWidth,windowHeight])
 useEffect(() => {
     setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
     return () => {

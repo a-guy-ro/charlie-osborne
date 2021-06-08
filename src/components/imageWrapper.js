@@ -26,7 +26,17 @@ useEffect(() => {
     })
     return () => {
     }
-}, [imageWidth,imageHeight,displayHeightRatio,displayWidthRatio,xPos,yPos])
+}, [displayHeightRatio,displayWidthRatio])
+useEffect(() => {
+    setImageDisplayProps({
+    width: imageWidth/displayWidthRatio,
+    height: imageHeight/displayHeightRatio,
+    top: parseFloat(yPos)*(displayHeightRatio),
+    left: parseFloat(xPos)
+    })
+    return () => {
+    }
+}, [])
 console.log()
     return (
         <div  css = {` width: ${imageDisplayProps.width}px;
