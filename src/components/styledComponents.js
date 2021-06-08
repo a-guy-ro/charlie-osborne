@@ -154,16 +154,17 @@ const StyledComponent = styled.div `
 .textBase {
     position: absolute;
     disply: block;
-    top:25%;
+    height:78%;
+    top: 22%;
     left:7%;
     right:7%;
-    height: 85%;
+    overflow: auto;
 }
 .textEmail {
+    font-size: 105%;
     position: absolute;
     display: block;
     text-align: center;
-    margin-top: 5%;
     left:25%;
     right:25%;
 }
