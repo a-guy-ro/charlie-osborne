@@ -9,18 +9,21 @@ module.exports = {
   },
   pathPrefix: "/charlie-osborne",
   plugins: [
-    // "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     trackingId: "",
-    //   },
-    // },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://charlieosborne.net",
+        sitemap: "https://charlieosborne.net/sitemap.xml",
+        policy: [{ userAgent: '*', allow: '/' }]
+      },
+    },
+    
     {
       resolve: "gatsby-source-filesystem",
       options: {
