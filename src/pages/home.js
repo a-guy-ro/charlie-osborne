@@ -35,19 +35,21 @@ const HomePage = ()=> {
   const windowWidth = useWindowWidth();
   const windowHeight = useWindowHeight();
   const images = data.images.nodes;
-  const bgImage = getImage(data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')]);
-  const widthRatio = bgImage.width !== Infinity ? bgImage.width : 1919;
-  const heightRatio = bgImage.height !== Infinity ? bgImage.height : 1079;
+  const bgImage = data.images.nodes[data.images.nodes.findIndex(node=>node.name === 'background')];
+  const gatsbyBgImage = getImage(bgImage);
+  const widthRatio = gatsbyBgImage.width !== Infinity ? gatsbyBgImage.width : 1919;
+  const heightRatio = gatsbyBgImage.height !== Infinity ? gatsbyBgImage.height : 1079;
   const [displayWidthRatio, setDisplayWidthRatio] = useState(widthRatio/1024);
   const [displayHeightRatio, setDisplayHeightRatio] = useState ((heightRatio/displayWidthRatio)/768);
   images.sort((a,b)=> b.childImageSharp.gatsbyImageData.width - a.childImageSharp.gatsbyImageData.width);  
 
   useEffect(() => {
-    setDisplayWidthRatio(bgImage.width/displayWidthRatio);
-    setDisplayHeightRatio((bgImage.height/(displayWidthRatio))/windowHeight);
+    // console.log('use effect is working!');
+    setDisplayWidthRatio(gatsbyBgImage.width/windowWidth);
+    setDisplayHeightRatio((gatsbyBgImage.height/(displayWidthRatio))/windowHeight);
     return () => {
     }
-  }, [bgImage.height, bgImage.width,windowWidth,windowHeight,displayWidthRatio])
+  }, [gatsbyBgImage.height,displayWidthRatio,windowHeight,windowWidth])
   console.log(widthRatio);
   console.log(heightRatio);
 
