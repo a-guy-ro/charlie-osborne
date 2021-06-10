@@ -15,7 +15,28 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+        }`,
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`
+        ],
+        createLinkInHead: true,
+        addUncaughtPages: true
+      }
+    },
+
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
